@@ -1,7 +1,7 @@
 'use strict'
 import React from 'react'
 import ipfsAPI from 'ipfs-api'
-import {Qtum} from 'qtumjs'
+import {SICash} from 'sicashjs'
 import Button from '@material-ui/core/Button'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
@@ -65,8 +65,8 @@ default class App extends React.Component {
 
     //init IPFS
     ipfsApi = ipfsAPI('ipfs.infura.io', '5001', {protocol: 'https'})
-    //init Qtum
-    contract = (new Qtum('http://atx:atx@127.0.0.1:8010', repo)).contract('IpfsRecord.sol')
+    //init SICash
+    contract = (new SICash('http://atx:atx@127.0.0.1:8010', repo)).contract('IpfsRecord.sol')
 
     componentDidMount() {
         this.getContractInfo()
@@ -128,8 +128,8 @@ default class App extends React.Component {
             addedFileHash: response[0].hash
         })
 
-        // Add file to Qtum
-        console.log('Adding file to Qtum')
+        // Add file to SICash
+        console.log('Adding file to SICash')
         const sendStr = (new Date()).valueOf() + "\t" + fileName + "\t" + response[0].hash
         const sendRes = await this.contract.send("add", [sendStr], {
             gasLimit: 1000000

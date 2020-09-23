@@ -1,5 +1,5 @@
-# qtum-ipfs
-A demo for sharing files via Qtum and IPFS.
+# sicash-ipfs
+A demo for sharing files via SICash and IPFS.
 
 # How it works
 ![image](doc/image/1.png)
@@ -8,13 +8,13 @@ A demo for sharing files via Qtum and IPFS.
 ## Prerequirements
 1. Get the source code and install dependencies.
 ```
-$ git clone https://github.com/qtumproject/qtum-ipfs.git
-$ cd qtum-ipfs
+$ git clone https://github.com/sicashproject/sicash-ipfs.git
+$ cd sicash-ipfs
 $ npm install
 ```
 
 2. Install the [Solidity compiler](https://solidity.readthedocs.io/en/latest/installing-solidity.html#building-from-source). You'd better install it from a binary package or the source code.
-3. Install [Solar](https://github.com/qtumproject/solar). Solar is a smart contract deployment tool of Qtum.
+3. Install [Solar](https://github.com/sicashproject/solar). Solar is a smart contract deployment tool of SICash.
 
 4. Start a local IPFS node or use a public one.
 ```
@@ -29,17 +29,17 @@ $ ipfs config --json API.HTTPHeaders.Access-Control-Allow-Credentials "[\"true\"
 ipfsApi = ipfsAPI('localhost', '5001', {protocol: 'http'})
 ```
 
-5. Start a Qtum node and a [CORS proxy](https://github.com/bitcoin/bitcoin/pull/12040).
+5. Start a SICash node and a [CORS proxy](https://github.com/bitcoin/bitcoin/pull/12040).
 ```
-// start a Qtum QT node on Mac with RPC parameters specified
-$ /Applications/Qtum-Qt.app/Contents/MacOS/Qtum-Qt -testnet -server -rpcuser=atx -rpcpassword=atx -rpcport=13889
+// start a SICash QT node on Mac with RPC parameters specified
+$ /Applications/SICash-Qt.app/Contents/MacOS/SICash-Qt -testnet -server -rpcuser=atx -rpcpassword=atx -rpcport=13889
 
 // start a CORS proxy
 $ npm install -g local-cors-proxy
 $ lcp --proxyUrl http://localhost:13889  --proxyPartial "" --port 8010
 
 // configuration in file src/App.js
-contract = (new Qtum('http://atx:atx@127.0.0.1:8010', repo)).contract('IpfsRecord.sol')
+contract = (new SICash('http://atx:atx@127.0.0.1:8010', repo)).contract('IpfsRecord.sol')
 ```
 
 ## Deployment
@@ -47,7 +47,7 @@ contract = (new Qtum('http://atx:atx@127.0.0.1:8010', repo)).contract('IpfsRecor
 ```
 // command for deploying the smart contract, generating a file named solar.development.json
 $ cd src
-$ solar deploy IpfsRecord.sol --qtum_rpc="http://atx:atx@127.0.0.1:13889/"
+$ solar deploy IpfsRecord.sol --sicash_rpc="http://atx:atx@127.0.0.1:13889/"
 
 // configuration in file src/App.js
 import repo from './solar.development.json'

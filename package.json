@@ -1,14 +1,14 @@
 {
-    "name": "qtum-ipfs",
+    "name": "sicash-ipfs",
     "version": "1.0.0",
-    "description": "Share files using Qtum and IPFS",
+    "description": "Share files using SICash and IPFS",
     "scripts": {
         "start": "node server.js"
     },
     "author": "Ai Tianxiang <tianxiangai@pku.edu.cn>",
     "contributors": [
         "Ai Tianxiang <tianxiangai@pku.edu.cn>",
-        "Zheng Yi <zhengyi@qtum.org>"
+        "Zheng Yi <zhengyi@sicash.org>"
     ],
     "license": "MIT",
     "devDependencies": {
@@ -45,7 +45,7 @@
         "@material-ui/core": "^3.3.2",
         "@material-ui/icons": "^3.0.1",
         "ipfs-api": "^26.0.3",
-        "qtumjs": "^1.9.1",
+        "sicashjs": "^1.9.1",
         "react": "^16.6.0",
         "react-dom": "^16.6.0"
     }
